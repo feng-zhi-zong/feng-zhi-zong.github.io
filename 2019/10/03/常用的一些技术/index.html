@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>常用的一些技术 - 風之踪</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="十步杀一人，千里不留行。,vue 父子通讯 如何实现 父子之间的v-modelprop 能实现父子通讯 但是prop中子组件的值改变了 父组件如何能够第一时间更新变量？
+position 的取值有哪几种，默认值是什么？rel,"> 
+    <meta name="author" content="Feng"> 
+    <link rel="alternative" href="atom.xml" title="風之踪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">風之踪</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">常用的一些技术</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">常用的一些技术</h1>
+        <div class="stuff">
+            <span>十月 03, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/css/">css</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/js/">js</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/vue/">vue</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/同步/">同步</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/异步/">异步</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/数据/">数据</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="vue-父子通讯-如何实现-父子之间的v-model"><a href="#vue-父子通讯-如何实现-父子之间的v-model" class="headerlink" title="vue 父子通讯 如何实现 父子之间的v-model"></a>vue 父子通讯 如何实现 父子之间的v-model</h2><p>prop 能实现父子通讯 但是prop中子组件的值改变了 父组件如何能够第一时间更新变量？</p>
+<h2 id="position-的取值有哪几种，默认值是什么？"><a href="#position-的取值有哪几种，默认值是什么？" class="headerlink" title="position 的取值有哪几种，默认值是什么？"></a>position 的取值有哪几种，默认值是什么？</h2><p>relative absolute fixed static（默认）</p>
+<h2 id="输出什么"><a href="#输出什么" class="headerlink" title="输出什么"></a>输出什么</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> p = &#123;  <span class="attr">a</span>: <span class="number">18</span>&#125;</span><br><span class="line"><span class="keyword">const</span> arr = []</span><br><span class="line">arr.push(p)</span><br><span class="line">arr.push(p)</span><br><span class="line">arr[<span class="number">1</span>].a = <span class="number">20</span></span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line">[  &#123;<span class="attr">a</span>: <span class="number">20</span>&#125;,  &#123;<span class="attr">a</span>: <span class="number">20</span>&#125;]</span><br><span class="line"><span class="keyword">const</span> p = &#123;  <span class="attr">age</span>:<span class="number">18</span>&#125;</span><br><span class="line"><span class="keyword">const</span> arr = []</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">	arr.push(p)&#125;</span><br><span class="line">	arr[<span class="number">1</span>].a = <span class="number">20</span></span><br><span class="line">	<span class="built_in">console</span>.log(arr)</span><br><span class="line">	<span class="comment">// 输出</span></span><br><span class="line">[  &#123; <span class="attr">age</span>: <span class="number">18</span>, <span class="attr">a</span>: <span class="number">20</span> &#125;,   &#123; <span class="attr">age</span>: <span class="number">18</span>, <span class="attr">a</span>: <span class="number">20</span> &#125;,   &#123; <span class="attr">age</span>: <span class="number">18</span>, <span class="attr">a</span>: <span class="number">20</span> &#125;]</span><br></pre></td></tr></table></figure>
+
+<p>引入传递</p>
+<h2 id="px-em-rem单位的区别？"><a href="#px-em-rem单位的区别？" class="headerlink" title="px em rem单位的区别？"></a>px em rem单位的区别？</h2><p>px em rem均是相对长度单位。</p>
+<ul>
+<li>px像素（Pixel）是相对于显示器屏幕分辨率而言的。<br>当显示器分辨率为1920时，设置一个div的大小为200px,再使用1366的显示器看这个200px,使用肉眼看起来是不一样的，但实际上它的大小是一样。</li>
+<li>em是相对于父元素字体大小进行缩放的。<br>假设字体大小为16px，那么1em === 16px,个人用的比较多的地方就是一段文本首行缩进，即text-indent: 2em; 其他的场景基本上没怎么用过了。</li>
+<li>rem是基于根元素按比例缩放的，也就是倍数。<br>将html的font-size设置为100px,想要设置某个元素为10px,只需这样计算 10/100 = 0.1, 得到10px === 0.1rem;<br>扩展一些内容</li>
+<li>%一般来说是相对于父元素的大小。父元素宽为1000px时，则80% === 800px;</li>
+<li>vw和vh分别为可视区域的宽度和高度，最大值去100vh/vw;</li>
+<li>pt是绝对长度单位，没有用过，不赘述。</li>
+</ul>
+<h2 id="display：none-和-visibility：hidden的区别？"><a href="#display：none-和-visibility：hidden的区别？" class="headerlink" title="display：none 和 visibility：hidden的区别？"></a>display：none 和 visibility：hidden的区别？</h2><table>
+<thead>
+<tr>
+<th align="left">display：none</th>
+<th align="left">visibility：hidden</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">渲染时，元素从DOM中消失，不占空间</td>
+<td align="left">没有消失，占空间，出现空白块。</td>
+</tr>
+<tr>
+<td align="left">非继承性，子元素一同从DOM中消失，将子元素设置为block,仍然不可见</td>
+<td align="left">继承，子元素不可见时因为继承了父元素的样式，子元素设置为visible，仍然可见</td>
+</tr>
+<tr>
+<td align="left">修改该值，页面会重新渲染</td>
+<td align="left">不重新渲染</td>
+</tr>
+</tbody></table>
+<h2 id="css选择器有哪些？"><a href="#css选择器有哪些？" class="headerlink" title="css选择器有哪些？"></a>css选择器有哪些？</h2><ul>
+<li><p>标签<br>p{</p>
+<p>}</p>
+</li>
+<li><p>class<br>.red {</p>
+<p>}</p>
+</li>
+<li><p>ID<br>#blue {</p>
+<p>}</p>
+</li>
+<li><p>伪类<br>a:hover{}</p>
+</li>
+<li><p>关系<br>li + li {}</p>
+</li>
+</ul>
+<h2 id="使用css实现一个三角形。"><a href="#使用css实现一个三角形。" class="headerlink" title="使用css实现一个三角形。"></a>使用css实现一个三角形。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/* 使用边框 */.triangle &#123;  border: 5px solid transparent;  border-left-color: red &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="描述一下cookies，sessionStorage，localStorage的区别及用法？"><a href="#描述一下cookies，sessionStorage，localStorage的区别及用法？" class="headerlink" title="描述一下cookies，sessionStorage，localStorage的区别及用法？"></a>描述一下cookies，sessionStorage，localStorage的区别及用法？</h2><ul>
+<li>HTTP Cookie（也叫Web Cookie或浏览器Cookie）是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。</li>
+<li>sessionStorage 为每一个给定的源（given origin）维持一个独立的存储区域，该存储区域在页面会话期间可用（即只要浏览器处于打开状态，包括页面重新加载和恢复）。</li>
+<li>localStorage 同样的功能，但是在浏览器关闭，然后重新打开后数据仍然存在。<br>(以上来自MDN)</li>
+</ul>
+<p>Cookies一般用于登录功能，用于保存登录后产生的tooken信息，让服务端知道该用户已经登录了。<br>localStorage可用于保存用户自定义主题之类的数据。sessionStorage、localStorage和域名是相关的，所有保存或删除都是在域名对应下进行的。（个人用的比较多的就是localStorage和vuex的配合使用，用于解决vuex页面刷新后数据不见的状态。）</p>
+<h2 id="分别列出JS中数组、字符串操作函数？"><a href="#分别列出JS中数组、字符串操作函数？" class="headerlink" title="分别列出JS中数组、字符串操作函数？"></a>分别列出JS中数组、字符串操作函数？</h2><table>
+<thead>
+<tr>
+<th align="left">数组函数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">push</td>
+<td align="left">添加元素到数组的末尾</td>
+</tr>
+<tr>
+<td align="left">pop</td>
+<td align="left">删除数组末尾的元素</td>
+</tr>
+<tr>
+<td align="left">shift</td>
+<td align="left">删除数组最前面（头部）的元素</td>
+</tr>
+<tr>
+<td align="left">unshift</td>
+<td align="left">添加元素到数组的头部</td>
+</tr>
+<tr>
+<td align="left">indexOf</td>
+<td align="left">找出某个元素在数组中的索引</td>
+</tr>
+<tr>
+<td align="left">splice</td>
+<td align="left">通过索引删除某个元素</td>
+</tr>
+<tr>
+<td align="left">slice</td>
+<td align="left">复制一个数组</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">字符串函数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">concat</td>
+<td align="left">连接两个字符串文本，并返回一个新的字符串。</td>
+</tr>
+<tr>
+<td align="left">includes</td>
+<td align="left">判断一个字符串里是否包含其他字符串</td>
+</tr>
+<tr>
+<td align="left">indexOf</td>
+<td align="left">从字符串对象中返回首个被发现的给定值的索引值，如果没有找到则返回-1。</td>
+</tr>
+<tr>
+<td align="left">match</td>
+<td align="left">使用正则表达式与字符串相比较。</td>
+</tr>
+<tr>
+<td align="left">replace</td>
+<td align="left">被用来在正则表达式和字符串直接比较，然后用新的子串来替换被匹配的子串</td>
+</tr>
+<tr>
+<td align="left">slice</td>
+<td align="left">摘取一个字符串区域，返回一个新的字符串</td>
+</tr>
+<tr>
+<td align="left">split</td>
+<td align="left">通过分离字符串成字串，将字符串对象分割成字符串数组。</td>
+</tr>
+<tr>
+<td align="left">substr</td>
+<td align="left">通过指定字符数返回在指定位置开始的字符串中的字符。</td>
+</tr>
+<tr>
+<td align="left">substring</td>
+<td align="left">返回在字符串中指定两个下标之间的字符</td>
+</tr>
+<tr>
+<td align="left">toLocaleLowerCase</td>
+<td align="left">根据当前区域设置，将符串中的字符转换成小写。对于大多数语言来说，toLowerCase的返回值是一致的。</td>
+</tr>
+<tr>
+<td align="left">toLocaleUpperCase</td>
+<td align="left">根据当前区域设置，将字符串中的字符转换成大写，对于大多数语言来说，toUpperCase的返回值是一致的</td>
+</tr>
+<tr>
+<td align="left">toString</td>
+<td align="left">返回用字符串表示的特定对象</td>
+</tr>
+<tr>
+<td align="left">trim</td>
+<td align="left">从字符串的开始和结尾去除空格</td>
+</tr>
+</tbody></table>
+<p>这些操作函数还有很多，没有全部列出，具体可参考MDN,以上是个人比较常用的。</p>
+<h2 id="完成一个Promise链式写法的例子。"><a href="#完成一个Promise链式写法的例子。" class="headerlink" title="完成一个Promise链式写法的例子。"></a>完成一个Promise链式写法的例子。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Promise.all(promise).then((result) =&gt; &#123;&#125;).catch((error)=&gt;&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>链式就是一个对象的方法返回的仍是一个拥有特定方法的对象，直到调用完成，才返回void</p>
+<p><em>（什么乱七八糟的）</em></p>
+<h2 id="JS中箭头函数-gt-与普通函数function-的区别？"><a href="#JS中箭头函数-gt-与普通函数function-的区别？" class="headerlink" title="JS中箭头函数 ()=&gt; 与普通函数function(){} 的区别？"></a>JS中箭头函数 ()=&gt; 与普通函数function(){} 的区别？</h2><ul>
+<li>不绑定this<br>在箭头函数出现之前，每个新定义的函数都有它自己的 this值。</li>
+<li>通过 call 或 apply 调用<br>由于 箭头函数没有自己的this指针，通过 call() 或 apply() 方法调用一个函数时，只能传递参数，他们的第一个参数会被忽略。</li>
+<li>不绑定arguments<br>箭头函数不绑定Arguments 对象，在大多数情况下，使用剩余参数是相较使用arguments对象的更好选择。剩余参数语法允许我们将一个不定数量的参数表示为一个数组。</li>
+<li>使用 new 操作符<br>箭头函数不能用作构造器，和 new一起用会抛出错误。</li>
+<li>使用prototype属性<br>箭头函数没有prototype属性。会返回undefined。</li>
+<li>使用 yield 关键字<br>yield 关键字通常不能在箭头函数中使用（除非是嵌套在允许使用的函数内）。因此，箭头函数不能用作生成器。</li>
+<li>返回对象字面量<br>用params =&gt; {object:literal}这种简单的语法返回对象字面量是行不通的。这是因为花括号（{} ）里面的代码被解析为一系列语句（即 foo 被认为是一个标签，而非对象字面量的组成部分）。所以，记得用圆括号把对象字面量包起来</li>
+<li>换行<br>箭头函数在参数和箭头之间不能换行。<br><em>（以上内容来自MDN的重新排列组合）</em></li>
+</ul>
+<h2 id="如何屏蔽浏览器右键菜单？"><a href="#如何屏蔽浏览器右键菜单？" class="headerlink" title="如何屏蔽浏览器右键菜单？"></a>如何屏蔽浏览器右键菜单？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">document.oncontextmenu = () =&gt; false</span><br><span class="line">```  </span><br><span class="line">## React 组件中 class components 和functional components 有什么区别，</span><br><span class="line">分别适合什么场景使用？## React生命周期的方法有哪些？## 分别写出匹配Emali、URL的正则表达式？</span><br><span class="line">邮箱：  /^[\w.+-]+@[\w-]+(\.[\w-]+)+$/URL:   /^((ht|f)tps?):\/\/[\w\-]+(\.[\w\-]+)+([\w\-.,@?^=%&amp;:\/~+#]*[\w\-@?^=%&amp;\/~+#])?$/(https?|ftp|file)://[-A-Za-z0-9+&amp;@#/%?=~_|!:,.;]+[-A-Za-z0-9+&amp;@#/%=~_|]</span><br><span class="line">## NodeJS中如何读写文件？```jsvar fs = require(&quot;fs&quot;);</span><br><span class="line">// 异步读取fs.readFile(&apos;file.txt&apos;, function (err, data) &#123;   if (err) &#123;       return console.error(err);   &#125;  </span><br><span class="line">console.log(data.toString());&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="http请求状态码有哪些？代表什么含义？"><a href="#http请求状态码有哪些？代表什么含义？" class="headerlink" title="http请求状态码有哪些？代表什么含义？"></a>http请求状态码有哪些？代表什么含义？</h2><table>
+<thead>
+<tr>
+<th align="left">状态码</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">200</td>
+<td align="left">请求成功</td>
+</tr>
+<tr>
+<td align="left">304</td>
+<td align="left">发送get请求时，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，则服务器应当返回这个状态码。</td>
+</tr>
+<tr>
+<td align="left">400</td>
+<td align="left">语义有误、参数有误</td>
+</tr>
+<tr>
+<td align="left">401</td>
+<td align="left">无权限，常见于登录。该响应必须包含一个适用于被请求资源的 WWW-Authenticate 信息头用以询问用户信息。</td>
+</tr>
+<tr>
+<td align="left">403</td>
+<td align="left">禁止访问，服务器已经理解请求，但是拒绝执行它。常见于跨域。</td>
+</tr>
+<tr>
+<td align="left">404</td>
+<td align="left">请求失败，请求所希望得到的资源未被在服务器上发现。比如输入错误的URL。</td>
+</tr>
+<tr>
+<td align="left">500</td>
+<td align="left">服务器遇到了不知道如何处理的情况。</td>
+</tr>
+<tr>
+<td align="left">504</td>
+<td align="left">当服务器作为网关，不能及时得到响应时返回此错误代码。</td>
+</tr>
+</tbody></table>
+<p><em>（太多了，只列出个人常用的）</em></p>
+<h2 id="Linus中常用的命令？"><a href="#Linus中常用的命令？" class="headerlink" title="Linus中常用的命令？"></a>Linus中常用的命令？</h2><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">cd</td>
+<td align="left">切换目录</td>
+</tr>
+<tr>
+<td align="left">ls</td>
+<td align="left">列出当前目录下所有的目录和文件</td>
+</tr>
+<tr>
+<td align="left">cp</td>
+<td align="left">复制文件</td>
+</tr>
+<tr>
+<td align="left">mv</td>
+<td align="left">移动文件、目录</td>
+</tr>
+<tr>
+<td align="left">rm</td>
+<td align="left">删除</td>
+</tr>
+</tbody></table>
+<p>除了cd ls其他的基本上用的很少，现在的用户图像界面也是很不错的。</p>
+<h2 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 传统的方法</span><br><span class="line">function unique(arr) &#123;  var res = [];  for (var i = 0, len = arr.length; i &lt; len; i++) &#123;      var current = arr[i];      </span><br><span class="line">if (res.indexOf(current) === -1) &#123;          res.push(current)      &#125;  &#125;  </span><br><span class="line">return res;&#125;var arr1 = [2, 4, 2, 8, 8, 12]console.log(unique(arr1))</span><br><span class="line">// 输出[ 2, 4, 8, 12 ]</span><br><span class="line">// 使用es6var uniqueArr = (arr = arr1) =&gt; [...new Set(arr)]console.log(uniqueArr)</span><br><span class="line">// 输出[ 2, 4, 8, 12 ]</span><br><span class="line">但是，一般实际的应用场景当中，是不会出现如此简单的数据结构的。所以这种去重方式只适用于面试。</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取数组最大值"><a href="#获取数组最大值" class="headerlink" title="获取数组最大值"></a>获取数组最大值</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function MaxFun (arr) &#123;  var max = 0  arr.map(i =&gt; &#123;    i &gt; max &amp;&amp; (max = i)  &#125;)  </span><br><span class="line">return max&#125;</span><br><span class="line">var arr1 = [2, 6, 13, 14, 13]</span><br><span class="line">console.log(MaxFun(arr1))</span><br><span class="line">// 输出14</span><br><span class="line">// 使用Math.maxvar max = Math.max(...arr);</span><br><span class="line">// ...扩展云算法可以将数组转换成字符序列（参数序列）</span><br></pre></td></tr></table></figure>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://music.163.com/song/media/outer/url?id=30590805&userid=1918806314.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

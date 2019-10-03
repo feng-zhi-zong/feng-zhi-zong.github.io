@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JS中的数学计算 - 風之踪</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="十步杀一人，千里不留行。,在数学中 0.1 + 0.2 等于 0.3。
+10.1 + 0.2 === 0.3
+
+但是在JS中这个是错误的
+whyJavaScript 里的数字的数据类型是 Number，整数和浮点数都是采用 ,"> 
+    <meta name="author" content="Feng"> 
+    <link rel="alternative" href="atom.xml" title="風之踪" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">風之踪</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">JS中的数学计算</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">JS中的数学计算</h1>
+        <div class="stuff">
+            <span>十月 03, 2016</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/计算/">计算</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>在数学中 0.1 + 0.2 等于 0.3。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.1 + 0.2 === 0.3</span><br></pre></td></tr></table></figure>
+
+<p>但是在JS中这个是错误的<br><a href="http://yiluyanxia.site/e34e0359/js小数点计算错误.png" target="_blank" rel="noopener"><img src="http://yiluyanxia.site/e34e0359/js%E5%B0%8F%E6%95%B0%E7%82%B9%E8%AE%A1%E7%AE%97%E9%94%99%E8%AF%AF.png" alt="js小数点计算错误"></a></p>
+<h3 id="why"><a href="#why" class="headerlink" title="why"></a>why</h3><p>JavaScript 里的数字的数据类型是 Number，整数和浮点数都是采用 IEEE 754 标准的 64 位双精度浮点数形式存储的。<br>JS在编译时会将 0.1 和 0.2 转换为二进制，在变为二进制时浮点小数时不精确的，浮点数用二进制表达时是无穷的，<a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format" target="_blank" rel="noopener">IEEE 754 标准</a>的 64 位双精度浮点数的小数部分最多支持 53 位二进制位，所以它们相加后再转换为十进制结果为：0.30000000000000004。<br><a href="http://yiluyanxia.site/e34e0359/计算结果.png" target="_blank" rel="noopener"><img src="http://yiluyanxia.site/e34e0359/%E8%AE%A1%E7%AE%97%E7%BB%93%E6%9E%9C.png" alt="计算结果"></a></p>
+<h3 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h3><h4 id="使用容差。"><a href="#使用容差。" class="headerlink" title="使用容差。"></a>使用容差。</h4><p>什么是容差？<br>在PS中，用来选择色彩颜色类似区域的魔棒工具有一个特别重要的属性叫容差，容差控制其近似程度，容差值越大，所选的区域越大，容差值越小，所选的区域越小。</p>
+<p><em>可以接受的最常见的做法是使用一个很小的“错误舍入”值作为比较的容差。这个很小的值经常被称为“机械极小值（machine epsilon）”，对于 JavaScript 来说这种 number 通常为 2^-52（2.220446049250313e-16）。</em></p>
+<p>ES6中，可以使用 Number.EPSILON，为了兼容前 ES6 的浏览器，可以使用以下方法简单实现这个功能。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if (!Number.EPSILON) &#123;	Number.EPSILON = Math.pow(2,-52);&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在可以使用 Number.EPSILON 来比较两个数是否相等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function numbersCloseEnoughToEqual(n1,n2) &#123;	return Math.abs( n1 - n2 ) &lt; Number.EPSILON;&#125;var a = 0.1 + 0.2;var b = 0.3;numbersCloseEnoughToEqual( a, b );					// truenumbersCloseEnoughToEqual( 0.0000001, 0.0000002 );	// false</span><br></pre></td></tr></table></figure>
+
+<h4 id="去掉小数点"><a href="#去掉小数点" class="headerlink" title="去掉小数点"></a>去掉小数点</h4><p>这个方法有点牵强，属于人类战略性欺骗。但是只要达到目的，何乐而不为。</p>
+<p>简单的小数点相加，思路就是将小数点去掉再进行计算，并将小数点的位数记下来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// 来自网络上的大佬function add(x, y) &#123;  const xLen = (x.toString().split(&apos;.&apos;)[1] || &apos;&apos;).length;  const yLen = (y.toString().split(&apos;.&apos;)[1] || &apos;&apos;).length;  const num = Math.pow(10, Math.max(xLen, yLen));  return (x * num + y * num) / num;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>简单的小数点相乘，同样也是去掉小数点。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// 来自网络上的大佬function multiplyDecimal = (m, n) =&gt; &#123;  let len = 0  let mStr = m.toString()  let nStr = n.toString()  try &#123;    len += mStr.split(&apos;.&apos;)[1].length  &#125; catch (f) &#123;&#125;  try &#123;    len += nStr.split(&apos;.&apos;)[1].length  &#125; catch (f) &#123;&#125;  return Number(mStr.replace(&apos;.&apos;, &apos;&apos;) * Number(nStr.replace(&apos;.&apos;, &apos;&apos;)) / Math.pow(10, len))&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="你以为整数就不计算错误了吗？"><a href="#你以为整数就不计算错误了吗？" class="headerlink" title="你以为整数就不计算错误了吗？"></a>你以为整数就不计算错误了吗？</h3><p>猜猜看 <em>(手动滑稽)</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(20190511224538123);console.log(20190511224538123 === 20190511224538124);console.log(201905112245381234);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Oop"><a href="#Oop" class="headerlink" title="Oop!"></a>Oop!</h3><p><a href="http://yiluyanxia.site/e34e0359/js整数问题.png" target="_blank" rel="noopener"><img src="http://yiluyanxia.site/e34e0359/js%E6%95%B4%E6%95%B0%E9%97%AE%E9%A2%98.png" alt="js整数问题"></a></p>
+<h3 id="why-1"><a href="#why-1" class="headerlink" title="why"></a>why</h3><p>究其原因则是<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures#数字类型" target="_blank" rel="noopener">JS数字类型</a></p>
+<p>根据 ECMAScript 标准，JavaScript 中只有一种数字类型：基于 IEEE 754 标准的双精度 64 位二进制格式的值（-(2^63 -1) 到 2^63 -1）。而其中只有 +／- (2^53 -1) 才能正确的表示整数。<br>2^53 -1 = 9,007,199,254,740,991<br>在这个 +／- (2^53 -1) 范围以内，称之为<strong>安全整数范围</strong>。</p>
+<p>ES6 中 Number.MAX_SAFE_INTEGER 常量表示在 JavaScript 中最大的安全整数（maxinum safe integer)（2^53 - 1）。<br>同样的 Number.MIN_SAFE_INTEGER 代表在 JavaScript中最小的安全的integer型数字 (-(2^53 - 1)).</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
